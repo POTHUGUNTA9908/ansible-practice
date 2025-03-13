@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Install Nginx
-      ansible.builtin.package:
+      ansible.builtin.dnf:
         name: nginx
         state: latest
 
