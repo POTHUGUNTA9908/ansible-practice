@@ -1,0 +1,15 @@
+- name: play-1
+  hosts: web
+  become: yes
+  tasks:
+    - name: install Nginx
+      ansible.builtin.debug:
+        msg: "Hello i am play-1 and task-1"
+
+- name: play-2
+  hosts: web
+  become: yes
+  tasks:
+    - name: install Nginx
+      ansible.builtin.debug:
+        msg: "Hello i am play-2 and task-1"
