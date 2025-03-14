@@ -1,0 +1,10 @@
+- name: variables
+  hosts: web
+  vars:
+    course: "Ansible"
+    topic: "science"
+    speed: "120"
+  tasks:
+    - name: print variables
+      ansible.builtin.debug:
+        msg: "Hi , i am writing {{course}} and the {{topic}} is very {{speed}}"
