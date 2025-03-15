@@ -1,18 +1,17 @@
--name: vars task
-hosts: local host
-vars:
-     time: "120 hrs"
-     speed: "325 km/hr"
-     internet: "149 mbps"
+- name: vars task
+  hosts: localhost # Corrected "local host" to "localhost"
+  vars:
+    time: "120 hrs"
+    speed: "325 km/hr"
+    internet: "149 mbps"
 
-tasks : 
- - name: print overrides
-   vars:
-   time: "100 hrs"
-   ansible bulitin.debug:
-   msg: " I am  spending{{time}} and with {{speed}} and {{internet}}"
-  
-  
--name: print information
-ansible.builtin.debug:
-    msg: "I am spending {{ time }} and with {{ speed }} and {{ internet }}"
+  tasks:
+    - name: print overrides
+      vars:
+        time: "100 hrs"
+      ansible.builtin.debug:
+        msg: "I am spending {{ time }} and with {{ speed }} and {{ internet }}"
+
+    - name: print information
+      ansible.builtin.debug:
+        msg: "I am spending {{ time }} and with {{ speed }} and {{ internet }}"
