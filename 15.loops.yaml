@@ -15,12 +15,11 @@
   hosts: localhost
   become: yes
   tasks:
-    - name: install   packages
-      ansible.builtin.debug:
-        msg: "{{ item }}" # Corrected "items" to "item"
+    - name: install packages
+      ansible.builtin.package: # Changed to the package module
+        name: "{{ item }}"
         state: latest
-        loop:
+      loop:
         - jenkins
         - ansible
         - docker
-
