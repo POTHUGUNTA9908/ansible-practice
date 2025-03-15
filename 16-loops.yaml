@@ -1,0 +1,12 @@
+- name: downloading packages
+  hosts: web
+  become: yes
+  tasks:
+    - name: install packages
+      ansible.builtin.package: # Changed to the package module
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - mysql
+        - post fix 
+        - nginx
