@@ -1,0 +1,6 @@
+- name: vars from argument
+  hosts: localhost # Corrected "local host" to "localhost"
+  tasks:
+    - name: get from args
+      ansible.builtin.debug:
+        msg: "hello {{ person }} and {{ number }}" # Added spaces for readability
