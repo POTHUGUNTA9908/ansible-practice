@@ -8,3 +8,19 @@
         - jenkins
         - ansible
         - docker
+
+
+
+- name: downloading packages
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: install   packages
+      ansible.builtin.debug:
+        msg: "{{ item }}" # Corrected "items" to "item"
+        state: latest
+        loop:
+        - jenkins
+        - ansible
+        - docker
+
