@@ -1,0 +1,13 @@
+-name: vars task
+  hosts: local host
+  vars:
+    time: "120 hrs"
+    speed: "325 km/hr"
+    internet: "149 mbps"
+
+  tasks : 
+     -name: print variables
+       ansible bulitin.debug:
+          msg: " I am  spending{time} and with {speed} and {internet}"
+          
+    
