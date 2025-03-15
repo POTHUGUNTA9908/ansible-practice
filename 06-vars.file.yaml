@@ -1,0 +1,9 @@
+- name: vars file
+  hosts: localhost # Corrected "local host" to "localhost"
+  vars_files:
+    - vars.yaml
+
+  tasks:
+    - name: print overrides information
+      ansible.builtin.debug: # Corrected "ansible.bulitin.debug"
+        msg: "we are learning {{ course }} and with {{ trainer }} and with {{ duration }}"
