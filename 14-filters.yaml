@@ -56,16 +56,14 @@
       ansible.builtin.debug:
         msg: "{{ my_dict | dict2items }}"
 
-
-- name: convert  items to dictionary
+- name: convert items to dictionary
   hosts: localhost
   vars:
-    my_dict: # Corrected variable name from "my-dict" to "my_dict"
+    my_list: # Changed variable name to better reflect the data type
       - { 'key': 'course', 'value': 'devops' }
       - { 'key': 'trainer', 'value': 'naresh' }
       - { 'key': 'duration', 'value': '30 days' }
-    
   tasks:
-    - name: convert dictionary to items
+    - name: convert items to dictionary
       ansible.builtin.debug:
-        msg: "{{ my_dict | dict2items }}"    
+        msg: "{{ my_list | items2dict }}" # Changed filter to items2dict    
