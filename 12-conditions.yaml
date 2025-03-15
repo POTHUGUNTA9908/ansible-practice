@@ -1,0 +1,15 @@
+- name: conditions
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: check user is exists or not
+      ansible.builtin.command: id expense
+       register: user
+       ignore_errors: true 
+
+    - name: say hello 
+      ansible.builtin.debug:
+        msg: "hello world"
+      
+
+    
