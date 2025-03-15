@@ -20,6 +20,6 @@
         name: "{{ item }}"
         state: latest
       loop:
-        - jenkins
-        - ansible
-        - docker
+        - mysql
+        - post fix 
+        - nginx
