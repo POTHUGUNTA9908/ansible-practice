@@ -1,12 +1,28 @@
-- name: downloading packages
+# - name: downloading packages
+#   hosts: web
+#   become: yes
+#   tasks:
+#     - name: install packages
+#       ansible.builtin.package: # Changed to the package module
+#         name: "{{ item }}"
+#         state: latest
+#       loop:
+#         - mysql
+#         - post fix 
+#         - nginx
+
+
+
+        
+- name: install packages
   hosts: web
   become: yes
   tasks:
-    - name: install packages
-      ansible.builtin.package: # Changed to the package module
-        name: "{{ item }}"
-        state: latest
-      loop:
-        - mysql
-        - post fix 
-        - nginx
+  - name: install packages
+    ansible.builtin.dnf:
+      name: "{{ item }}"
+      state: latest
+    loop:
+    - mysql
+    - nginx
+    - postfix
