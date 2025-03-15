@@ -43,27 +43,33 @@
       ansible.builtin.debug:
         msg: "minages: {{ ages | min }} and maxages: {{ ages | max }}"
 
-
-- name: convert dictionary to items
+- name: convert dictionary into items/list
   hosts: localhost
   vars:
-    my_dict: # Corrected variable name from "my-dict" to "my_dict"
-      course: "devops"
-      trainer: "naresh"
-      duration: "30 days"
+    my_dict: # this is called as dictionary or map or key/value pairs.
+      Course: Ansbile
+      Trainer: Sivakumar
+      Duration: 120hr
   tasks:
-    - name: convert dictionary to items
-      ansible.builtin.debug:
-        msg: "{{ my_dict | dict2items }}"
+  - name: before convert
+    ansible.builtin.debug:
+      msg: "Before convert: {{ my_dict }}"
+  - name: after convert
+    ansible.builtin.debug:
+      msg: "After convert: {{ my_dict | dict2items }}"
 
+      
 - name: convert items to dictionary
   hosts: localhost
   vars:
-    my_list: # Changed variable name to better reflect the data type
-      - { 'key': 'course', 'value': 'devops' }
-      - { 'key': 'trainer', 'value': 'naresh' }
-      - { 'key': 'duration', 'value': '30 days' }
+    my_list:
+    - {'key': 'Course', 'value': 'Ansbile'}
+    - {'key': 'Trainer', 'value': 'Sivakumar'}
+    - {'key': 'Duration', 'value': '120hr'}
   tasks:
-    - name: convert items to dictionary
-      ansible.builtin.debug:
-        msg: "{{ my_list | items2dict }}" # Changed filter to items2dict    
+  - name: before convert
+    ansible.builtin.debug:
+      msg: "Before convert: {{ my_list }}"
+  - name: after convert
+    ansible.builtin.debug:
+      msg: "After convert: {{ my_list | items2dict }}"
