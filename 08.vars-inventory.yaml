@@ -2,7 +2,6 @@
   hosts: localhost # Corrected "local host" to "localhost"
 
   tasks:
-  
     - name: print  information
       vars:
         timings: "07:15 am"
