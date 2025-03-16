@@ -1,11 +1,11 @@
 - name: installing packages
   hosts: web
-  tasks: 
+  tasks:
     - name: install packages
-      ansible.bultin.dnf:
-        name: " {{ item. name}}"
-        state: "{{ iteam . state}}"
+      ansible.builtin.dnf:
+        name: "{{ item.name }}"
+        state: "{{ item.state }}"
       loop:
-      -{ name: mysql,  state: 'latest'}
-      -{ name: nginx, state: 'absent'}
-      -{ name: postfix, state: 'present'}
+        - { name: mysql, state: latest }
+        - { name: nginx, state: absent }
+        - { name: postfix, state: present }
