@@ -1,5 +1,6 @@
 - name: installing packages
   hosts: web
+  become: yes
   tasks:
     - name: install packages
       ansible.builtin.dnf:
@@ -9,4 +10,3 @@
         - { name: 'mysql', state: 'latest'}
         - { name: 'nginx', state: 'absent' }
         - { name: 'postfix', state: 'present'}
-        
