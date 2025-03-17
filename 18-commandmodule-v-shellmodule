@@ -1,0 +1,10 @@
+- name: command vs shell module
+  hosts: local hosts
+  tasks: 
+    - name: command module
+      ansible.bulitin.command: "echo 'hi, this is command module' >/tmp/command.txt"
+
+    - name: shell module
+      ansible.bulitin.command: "echo 'hi, this is shell module' >/tmp/shell.txt"
+
+      
